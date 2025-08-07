@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCG</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<style>
+    body {
+  background-color: #f0f2f5;
+  font-family: Arial, sans-serif;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
+}
+form {
+  background-color: rgba(255, 255, 255, 0.2);  /* Fondo blanco con transparencia */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);     /* Sombra suave */
+  backdrop-filter: blur(8px);                 /* Difumina el fondo detrás */
+  -webkit-backdrop-filter: blur(8px);         /* Para compatibilidad con Safari */
+}
+
+h2, p {
+  text-align: center;
+  color: white;
+}
+
+label {
+  font-weight: bold;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+</style>
+<body>
+    <h1>Acceso al Sistema</h1>
+<p>Ingrese sus datos para continuar</p>
+<form id="loginForm" action="#" method="post">
+
+
+  <label for="usuario">Usuario:</label><br>
+  <input type="text" id="usuario" name="usuario" required><br><br>
+
+  <label for="contrasena">Contraseña:</label><br>
+  <input type="password" id="password" name="contrasena" required><br><br>
+
+  <label for="nomina">Selecciona la nómina:</label><br>
+  <select id="nomina" name="nomina" required>
+    <option value="">-- Seleccione --</option>
+    <option value="bog">GCG BOG</option>
+    <option value="colombia">GCG COLOMBIA</option>
+  </select><br><br>
+
+  <button type="submit">Ingresar</button>
+</form>
+<script>
+  const usuarios = [
+    { usuario: "admin", password: "1234", nomina: "bog" },
+    { usuario: "julie", password: "5678", nomina: "colombia" }
+  ];
+
+  document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const user = document.getElementById("usuario").value.trim();
+    const pass = document.getElementById("password").value.trim(); // O "contrasena" si no cambiaste el ID
+    const nomina = document.getElementById("nomina").value;
+
+    const usuarioValido = usuarios.find(u =>
+      u.usuario === user && u.password === pass && u.nomina === nomina
+    );
+
+    if (usuarioValido) {
+      // Redirige según la nómina
+      if (nomina === "bog") {
+        window.location.href = "gcg-bog.html";
+      } else if (nomina === "colombia") {
+        window.location.href = "gcg-colombia.html";
+      }
+    } else {
+      alert("Datos incorrectos o nómina equivocada.");
+    }
+  });
+</script>
+
+</body>
+</html>
