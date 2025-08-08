@@ -2,7 +2,7 @@ body {
     margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-image: url('GCG\ Core\ -\ v4.jpg'); /* Usa el nuevo nombre */
+  background-image: url('gcg-core-v4.jpg'); /* Usa el nuevo nombre */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -14,5 +14,6 @@ body {
   margin: 0;
   flex-direction: column;
 }
+
 
 
