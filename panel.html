@@ -34,11 +34,10 @@
 <body>
 
   <h1>Bienvenido al sistema de nómina</h1>
-  <button class="logout" onclick="cerrarSesion()">Cerrar sesión</button>
+ <button onclick="cerrarSesion()">Cerrar sesión</button>
 
   <script>
     function cerrarSesion() {
-      // Limpia datos guardados (si usas localStorage o sessionStorage)
       localStorage.clear();
       sessionStorage.clear();
 
@@ -48,3 +47,4 @@
   </script>
 </body>
 </html>
+
